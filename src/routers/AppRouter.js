@@ -15,10 +15,10 @@ export const AppRouter = () => {
         <Router>
             <div>
                 <Switch>
-                    <Route exact path="/login" component={LoginScreen} />
-                    <Route exact path="/" component={DataGrid} />
+                    <Route exact path="/" component={LoginScreen} />
+                    <Route exact path="/posts" component={DataGrid} />
                     <Route exact path="/images" component={DataImg} />
-                    <Redirect to="/" />
+                    <Redirect to="/posts"/>
                 </Switch>
             </div>
         </Router>

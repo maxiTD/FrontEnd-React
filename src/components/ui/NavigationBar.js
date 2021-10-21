@@ -2,20 +2,20 @@ import React from 'react';
 import { Navbar, Form, Button, Nav } from 'react-bootstrap';
 
 const logout = () => {
-    window.location.href = './login';
+    window.location.href = '/';
 }
 
 const  isInImages = window.location.pathname.match('/images');
-const  isInPosts = window.location.pathname.match('/DataGrid');
+const  isInPosts = window.location.pathname.match('/posts');
 
 
 
 export const NavigationBar = () => {
     return (
         <Navbar bg="dark" variant="dark" style = {{justifyContent:'space-between'}}>
-            <Navbar.Brand style={{marginLeft:'20px'}} href="/">React FrontEnd Demo</Navbar.Brand>
+            <Navbar.Brand style={{marginLeft:'20px'}} href="#">React FrontEnd Demo</Navbar.Brand>
             <Nav className="mr-auto">
-            <Nav.Link className={(isInPosts) ? "active" : ""} href="/DataGrid">Posts</Nav.Link>
+            <Nav.Link className={(isInPosts) ? "active" : ""} href="/posts">Posts</Nav.Link>
             <Nav.Link className={(isInImages) ? "active" : ""} href="/images">Images</Nav.Link>
 
             </Nav>

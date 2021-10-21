@@ -39,7 +39,7 @@ export const LoginScreen = () => {
 
             localStorage.setItem('token', result.data.token);
             Swal.fire('Ok!', 'Bienvenido!!', 'success')
-            window.location.href = "/";
+            window.location.href = "/posts";
 
         } catch (error) {
             Swal.fire('Ususario o Contraseña incorrectos!', 'Por favor, revise los datos ingresados', 'error');
