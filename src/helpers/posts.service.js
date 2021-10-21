@@ -13,6 +13,6 @@ export const getPosts = async(token) => {
     };
 
     const data = await axios(config);
-
+    
     return data;
 }

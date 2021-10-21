@@ -5,7 +5,7 @@ import { getPosts } from '../helpers/posts.service';
 
 
 const  token = localStorage.getItem('token');
-//Comprobar token valido
+
 
 export const DataGrid = () => {
 

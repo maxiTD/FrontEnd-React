@@ -31,16 +31,22 @@ export const LoginScreen = () => {
             return Swal.fire('Verificar contraseña!', 'La contraseña debe tener al menos 7 dígitos.', 'error');
         };
 
-        const result = await axios.post(`${REACT_APP_API_URL}/auth`, {
-            email,
-            password
-        });
+        try {
+            const result = await axios.post(`${REACT_APP_API_URL}/auth`, {
+                email,
+                password
+            });
 
-        localStorage.setItem('token', result.data.token);
+            localStorage.setItem('token', result.data.token);
+            Swal.fire('Ok!', 'Bienvenido!!', 'success')
+            window.location.href = "/";
 
-        Swal.fire('Ok!', 'Bienvenido!!', 'success')
+        } catch (error) {
+            Swal.fire('Ususario o Contraseña incorrectos!', 'Por favor, revise los datos ingresados', 'error');
+        }
 
-        window.location.href = "/";
+
+
     };
     
 

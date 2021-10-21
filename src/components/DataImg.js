@@ -5,11 +5,11 @@ import { Paginate } from './ui/Pagination';
 import { getImages } from '../helpers/images.service';
 
 let token = localStorage.getItem('token');
-const pageSize = 10;
+const pageSize = process.env.REACT_APP_IMAGES_PAGESIZE;
 
 export const DataImg = () => {
     
-    const [pageNumber, setpageNumber] = useState(0);
+    const [pageNumber, setpageNumber] = useState(1);
     const [images, setimages] = useState([]);
     const [totalPages, settotalPages] = useState(1);
 
@@ -18,15 +18,14 @@ export const DataImg = () => {
         const result = await getImages(pageNumber, pageSize, token);
 
         settotalPages(result.totalPages);
-        setimages(result.data);
         setpageNumber(pageNumber);
+        setimages(result.data);
     }
-    
     useEffect(() => {
         setPage(pageNumber);
     }, [])
-        
-    const paginate = pageNumber => setpageNumber(pageNumber);
+    
+    const pagination = pageNumber => setPage(pageNumber);
     
     return (
         <>
@@ -34,7 +33,7 @@ export const DataImg = () => {
 
         <div className="content">
             <CardGroup>
-                <Row key={1} xs={2} md={4} lg={6} style = {{justifyContent:'center'}}>
+                <Row key={1} xs={2} md={4} lg={6} style={{justifyContent:'center'}}>
                 {images.map(image => 
                     <Card key={image.id} style={{ margin: '10px' }}>
                     <Card.Img variant="top" src={image.url} />
@@ -48,7 +47,7 @@ export const DataImg = () => {
 
             <Row key={2}>
                 <Col xs={{size:4, offset:4}}>
-                    <Paginate totalPages={totalPages} paginate={paginate} selected={pageNumber}></Paginate>
+                    <Paginate totalPages={totalPages} paginate={pagination} selected={pageNumber}></Paginate>
                     </Col>
             </Row>
     </div>
