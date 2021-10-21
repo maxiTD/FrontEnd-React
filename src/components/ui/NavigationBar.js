@@ -2,15 +2,12 @@ import React from 'react';
 import { Navbar, Form, Button, Nav } from 'react-bootstrap';
 
 const logout = () => {
-    //cookies.remove('user', {path: '/'});
-    //cookies.remove('token', {path: '/'});
     window.location.href = './login';
 }
 
 const  isInImages = window.location.pathname.match('/images');
 
 
-//mover el loguot a la derecha
 export const NavigationBar = () => {
     return (
         <Navbar bg="dark" variant="dark" style = {{justifyContent:'space-between'}}>

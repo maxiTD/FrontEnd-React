@@ -14,9 +14,9 @@ export const Paginate = ({totalPages, paginate, selected}) => {
 
     return (
         <Pagination>
-            {pages.map((x) =>
-                <Pagination.Item className='height-40' key={x}  active={selected == x}>
-                    <a onClick={() => paginate(x)} role="button">{x}</a>
+            {pages.map((page) =>
+                <Pagination.Item className='height-40' key={page}  active={selected == page}>
+                    <a onClick={() => paginate(page)} role="button">{page}</a>
                 </Pagination.Item>
             )}
         </Pagination>

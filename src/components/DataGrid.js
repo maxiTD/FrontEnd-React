@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { Table } from 'react-bootstrap';
 import { NavigationBar } from './ui/NavigationBar';
 import { getPosts } from '../helpers/posts.service';
 
 
 const  token = localStorage.getItem('token');
-//comprobar token valido
-//const newToken = await 
+//Comprobar token valido
 
 export const DataGrid = () => {
 

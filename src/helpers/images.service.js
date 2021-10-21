@@ -13,7 +13,6 @@ export const getImages = async(pageNumber = 0, pageSize = 10, token) => {
     };
 
     const {data} = await axios(config);
-    //console.log(data);
 
     return data;
 }

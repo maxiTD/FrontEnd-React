@@ -2,15 +2,13 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
-
-import { SignUp } from './SignUp.js';
 import './login.css';
 
 const {REACT_APP_API_URL} = process.env;
 
 const initForm = {
-    email: '',
-    password: ''
+    email: 'invitado@invitado.com',
+    password: 'invitado'
 };
 
 export const LoginScreen = () => {
@@ -40,8 +38,6 @@ export const LoginScreen = () => {
 
         localStorage.setItem('token', result.data.token);
 
-        //console.log(localStorage.getItem('token'));
-
         Swal.fire('Ok!', 'Bienvenido!!', 'success')
 
         window.location.href = "/";
@@ -50,8 +46,8 @@ export const LoginScreen = () => {
 
     return (
         <div className="container login-container">
-            <div className="row">
-                <div className="col-md-6 login-form-1">
+            <div className="row" style={{justifyContent: 'center'}}>
+                <div className="col-md-6 login-form-2">
                     <h3>Ingreso</h3>
                     <form 
                         onSubmit={handleSubmitForm}
@@ -88,7 +84,7 @@ export const LoginScreen = () => {
                     </form>
                 </div>
 
-                <SignUp />
+               
             </div>
         </div>
     );
